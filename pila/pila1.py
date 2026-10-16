@@ -1,26 +1,28 @@
 stack = []
-size = 0
+size  = 0
 pos = 0
 
 def push(item, stack, size):
+    global pos 
     if pos < size:
         stack.append(item)
-        return "Agregado"
+        pos+=1
     else:
         return "Pila llena..."
 
 def show(stack):
     for item in reversed(stack):
-        print(item)
+        print(f"|{item}|")
 
-size = int(input("Dime el tamaño de la pila: "))
+
+size = int(input("Dime el tamano de la pila: "))
 
 while True:
     item = input("Dime un valor: ")
     print(push(item, stack, size))
-    pos += 1
-    answer = input("Desea ingresar otro valor (S|N): ")
+    pos+=1
+    answer = input("Desea ingresar otro valor [S/N]: ")
     if answer.lower() == "n":
         break
 
-show(stack)
+print(show(stack))
